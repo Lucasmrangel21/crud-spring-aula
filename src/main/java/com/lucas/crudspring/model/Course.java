@@ -6,19 +6,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
-@Entity(name = "Curso")
+@Entity
 public class Course {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("_id")
     private Long id;
 
-    @Column(name = "nome", length = 200, nullable = false)
+    @Column(length = 200, nullable = false)
     private String name;
 
-    @Column(name = "categoria", length = 20, nullable = false)
+    @Column(length = 20, nullable = false)
     private String category;
 }
